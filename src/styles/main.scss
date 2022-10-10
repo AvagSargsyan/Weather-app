@@ -106,12 +106,12 @@ body {
           'main sec'
           'main sec'
           'main button';
-
         gap: 1rem;
         padding: 1.6rem;
         border-radius: 6px;
         color: rgb(241, 218, 167);
         background: $color2;
+        animation: add 1s;
 
         .main {
           grid-area: main;
@@ -158,5 +158,16 @@ body {
       display: flex;
       gap: 0.2rem;
     }
+  }
+}
+
+@keyframes add {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) rotateY(80deg);
+  }
+
+  100% {
+    opacity: 1;
   }
 }

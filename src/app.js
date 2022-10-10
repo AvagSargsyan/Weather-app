@@ -8,7 +8,7 @@ function App() {
 
   function render(data) {
     container.innerHTML = '';
-    container.appendChild(weatherForm(function (data) {
+    container.appendChild(weatherForm((data) => {
       render(data);
     }));
     container.appendChild(weatherInfo(data, () => {
