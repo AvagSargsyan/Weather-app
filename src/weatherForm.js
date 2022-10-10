@@ -2,7 +2,6 @@ import extractData from "./getApiData";
 
 function weatherForm(onChange) {
   const container = document.createElement('form');
-  const form = document.createElement('form');
   const input = document.createElement('input');
   input.type = 'text';
   input.name = 'cityName';
@@ -11,23 +10,23 @@ function weatherForm(onChange) {
   button.innerText = 'Search';
 
 
-  form.addEventListener('submit', e => {
+  container.addEventListener('submit', e => {
     e.preventDefault();
-    extractData(input.value).then(data => {
-      console.log(data);
-      onChange(data);
-    }).catch(error => {
-      if (error.message === '404') {
-        onChange('not valid');
-      } else {
-        onChange('other error');
-      }
-    });
+    if (input.value) {
+      extractData(input.value).then(data => {
+        onChange(data);
+      }).catch(error => {
+        if (error.message === '404') {
+          onChange('not valid');
+        } else {
+          onChange('other error');
+        }
+      });
+    }
   });
 
-  form.appendChild(input);
-  form.appendChild(button);
-  container.appendChild(form);
+  container.appendChild(input);
+  container.appendChild(button);
   return container;
 }
 

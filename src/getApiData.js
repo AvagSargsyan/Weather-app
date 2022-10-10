@@ -1,6 +1,6 @@
 async function getWeatherData(cityName) {
   try {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=54dcd8e9e87894c430bb25c704729ad3`,
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=54dcd8e9e87894c430bb25c704729ad3`,
       {
         mode: 'cors',
       });
@@ -21,7 +21,7 @@ async function getWeatherData(cityName) {
 async function extractData(cityName) {
   try {
     const data = await getWeatherData(cityName);
-    console.log(data)
+
     return {
       temp: data.main.temp,
       feel: data.main.feels_like,

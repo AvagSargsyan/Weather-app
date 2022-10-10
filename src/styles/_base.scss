@@ -1,0 +1,11 @@
+$color1: rgb(168, 220, 250);
+$color2: rgb(26, 87, 156);
+$hover-color: rgb(21, 69, 124);
+
+@mixin button {
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border: none;
+  font-size: 1.1rem;
+  border-radius: 6px;
+}
